@@ -1,0 +1,39 @@
+Task: 
+Perform Regression with a small, high dimensional and incomplete dataset
+
+
+
+
+Given: 
+Data with over 800 features per instance (d > 800). Of these features around 200 are meaningful they said. 
+Secondly there are missing values (NaN) and outliers in the dataset.
+
+
+
+
+Approach Idea: 
+
+- Outlier Rejection
+Naive approach - calculate mean and std and remove all samples which are not in a std depending proximity of the mean
+
+
+
+- Data Imputation: 
+MICE
+
+Alternative1: For each feature, plot a histogram of the datapoints and estimate a distribution. Fill the NaNs with sensible values from the respective distributions
+
+Alternative2: KNN: is an option but comp. expensive and would have to project to lower dimension for it. also have to remove outliers before
+
+
+
+
+- At this point standardize the dataset
+
+- Irrelevant features: Perform pca and looking at the respective EVs keep those above a certain reasonable threshold (should result in around 200 relevant features)
+
+
+
+
+- For the regression itself perhaps kernelized ridge regression or a NN?
+
